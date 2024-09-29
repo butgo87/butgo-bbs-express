@@ -5,3 +5,7 @@ run the app:
 
 .gitignore 생성
 https://www.gitignore.io/
+
+select * from sqlite_schema;
+
+select * from sqlite_master;

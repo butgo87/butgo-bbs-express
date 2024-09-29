@@ -1,0 +1,39 @@
+
+DROP TABLE IF EXISTS T_SEQUENCE;
+CREATE TABLE T_SEQUENCE ( -- 채번
+    SEQ_NAME VARCHAR(250) NOT NULL,  -- '채번 이름'
+    NEXT_VAL INTEGER NOT NULL,  -- '다음 채번값'
+    SEQ_DATE VARCHAR(25) NOT NULL,  -- '다음 채번값'
+    PREFIX VARCHAR(25),  -- '시퀀스 접두어'
+    PADDING INTEGER NOT NULL DEFAULT 0,  -- '패딩'
+    CD_PREFIX_TYPE CHAR(1) NOT NULL DEFAULT '1', -- 접두어 타입 코드 ('O': CD_CYCLE_OPTION 사용, 'P': PREFIX, 'N': 사용안함)
+    CD_CYCLE_OPTION VARCHAR(25) NOT NULL,  -- '순환옵션(Y: 년, M: 월, D: 일, N: 없음)'
+    CD_REC_STAT CHAR(1) NOT NULL DEFAULT '1', -- 레코드 상태
+    FRST_REG_USER_ID VARCHAR(20) NOT NULL,  -- '최초 등록자 아이디'
+    FRST_REG_DTTM VARCHAR(25) NOT NULL,  -- '최초 등록 일시'
+    LAST_UDT_USER_ID VARCHAR(20) NOT NULL,  -- '최종 수정자 아이디'
+    LAST_UDT_DTTM VARCHAR(25) NOT NULL,  -- '최종 수정 일시'
+    CONSTRAINT T_SEQUENCE_PK PRIMARY KEY (SEQ_NAME)
+);
+
+DROP TABLE IF EXISTS T_USER;
+CREATE TABLE T_USER (   -- 사용자
+	USER_ID VARCHAR(18) NOT NULL,  -- '사용자 아이디'
+	LOGIN_ID VARCHAR(25) NOT NULL,  -- '사용자 아이디'
+	LOGIN_NM VARCHAR(250) NOT NULL,  -- '사용자 이름'
+	PASSWD VARCHAR(250) NOT NULL,  -- '비밀번호'
+    CD_REC_STAT CHAR(1) NOT NULL DEFAULT '1', -- 레코드 상태
+    FRST_REG_USER_ID VARCHAR(20) NOT NULL,  -- '최초 등록자 아이디'
+    FRST_REG_DTTM VARCHAR(25) NOT NULL,  -- '최초 등록 일시'
+    LAST_UDT_USER_ID VARCHAR(20) NOT NULL,  -- '최종 수정자 아이디'
+    LAST_UDT_DTTM VARCHAR(25) NOT NULL,  -- '최종 수정 일시'
+    CONSTRAINT T_USER_PK PRIMARY KEY (USER_ID)
+);
+
+create table T_BOARD (
+
+);
+
+create table T_COMMENT (
+
+);
